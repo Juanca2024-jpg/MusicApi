@@ -1,4 +1,4 @@
-package com.musicApi.infrastructure.driven_adapters.reactive_web.base.playlist;
+package com.musicApi.infrastructure.driven_adapters.reactive_web.playlist;
 
 import com.musicApi.domain.model.playlist.PlayListDTO;
 import com.musicApi.domain.model.playlist.gateway.PlayListGateway;

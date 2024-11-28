@@ -1,4 +1,4 @@
-package com.musicApi.infrastructure.driven_adapters.reactive_web.base.playlist;
+package com.musicApi.infrastructure.driven_adapters.reactive_web.playlist;
 
 import com.musicApi.domain.model.spotify.SpotifyTokenDTO;
 import com.musicApi.domain.model.spotify.gateway.SpotifyGateway;
@@ -15,6 +15,7 @@ import java.util.Base64;
 @Setter
 @Service
 public class tokenService extends Consumer implements SpotifyGateway {
+
     private static final String ERROR_SEND_STATUS_OFFER = "ERROR en el consumo del servicio Spotify";
 
     @Value("${api.spotify.tokenUri}")
@@ -41,6 +42,7 @@ public class tokenService extends Consumer implements SpotifyGateway {
 
     public Mono<SpotifyTokenDTO> getToken(){
         String body = "grant_type=client_credentials";
-        return postRequest(uri, body, SpotifyTokenDTO.class);
+        return postRequest(uri, body, SpotifyTokenDTO.class)
+                .onErrorResume(throwable -> Mono.error(new Exception(ERROR_SEND_STATUS_OFFER)));
     }
 }

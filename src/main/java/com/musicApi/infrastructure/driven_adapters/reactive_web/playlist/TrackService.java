@@ -1,4 +1,4 @@
-package com.musicApi.infrastructure.driven_adapters.reactive_web.base.playlist;
+package com.musicApi.infrastructure.driven_adapters.reactive_web.playlist;
 
 import com.musicApi.domain.model.spotify.TrackDTO;
 import com.musicApi.domain.model.spotify.gateway.TrackGateway;
