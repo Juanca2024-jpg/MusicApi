@@ -1,4 +1,4 @@
-package theCatApi.domain.model.common;
+package com.musicApi.infrastructure.helpers.common;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

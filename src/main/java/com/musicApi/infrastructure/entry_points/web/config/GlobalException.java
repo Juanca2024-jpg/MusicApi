@@ -3,7 +3,7 @@ package com.musicApi.infrastructure.entry_points.web.config;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import theCatApi.domain.model.common.ResponseDTO;
+import com.musicApi.infrastructure.helpers.common.ResponseDTO;
 
 @RestControllerAdvice
 public class GlobalException {
