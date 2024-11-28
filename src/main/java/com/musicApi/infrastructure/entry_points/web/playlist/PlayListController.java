@@ -1,11 +1,11 @@
 package com.musicApi.infrastructure.entry_points.web.playlist;
 
+import com.musicApi.domain.model.playlist.PlayListDTO;
+import com.musicApi.domain.model.playlist.request.PlayListParam;
 import com.musicApi.domain.usecase.PlayListUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,6 +19,10 @@ public class PlayListController {
         return ResponseEntity.ok().body(playListUseCase.getPlaylistAll());
     }
 
-
+    @PostMapping
+    public ResponseEntity<Object> savePlaylist(@RequestBody PlayListParam playListParam) {
+        return ResponseEntity.ok().body(playListUseCase
+                .savePlayList(playListParam));
+    }
 
 }

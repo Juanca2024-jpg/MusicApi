@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 
 @Data
 @Builder
@@ -13,12 +12,10 @@ import java.util.List;
 @NoArgsConstructor
 public class PlayListDTO {
 
-    private Long id;
-
     private String nombre;
 
     private String descripcion;
 
-    private List<SongDTO> canciones;
+    private Boolean estado;
 
 }

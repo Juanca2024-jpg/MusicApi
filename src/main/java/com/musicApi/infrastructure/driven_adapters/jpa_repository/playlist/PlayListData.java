@@ -1,15 +1,11 @@
 package com.musicApi.infrastructure.driven_adapters.jpa_repository.playlist;
 
+import com.musicApi.infrastructure.driven_adapters.jpa_repository.song.SongData;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.List;
-
-
-@Getter
-@Setter
+@Data
 @Builder
-@Entity(name = "playlist")
+@Entity
 @Table(name = "playlist", schema = "musicdb")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,12 +13,9 @@ public class PlayListData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     private String nombre;
 
     private String descripcion;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<SongData> canciones;
+    private Boolean estado;
 }

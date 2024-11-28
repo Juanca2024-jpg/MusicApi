@@ -1,6 +1,6 @@
 package com.musicApi.application;
 
-import com.musicApi.domain.model.playlist.playlistGateway.PlayListGateway;
+import com.musicApi.domain.model.playlist.gateway.PlayListGateway;
 import com.musicApi.domain.usecase.PlayListUseCase;
 import org.reactivecommons.utils.ObjectMapper;
 import org.reactivecommons.utils.ObjectMapperImp;
