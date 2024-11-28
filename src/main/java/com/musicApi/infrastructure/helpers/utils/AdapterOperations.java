@@ -10,6 +10,7 @@ import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -45,12 +46,15 @@ public abstract class AdapterOperations<E, D, I, R extends JpaRepository<D, I>> 
                 .flatMapMany(this::saveData).map(this::toEntity);
     }
 
-    private Mono<E> doQuery(Mono<D> query){
-        return query.map(this::toEntity);
+    protected Mono<E> doQuery(Supplier<Optional<D>> query){
+        return fromSupplier(query)
+                .subscribeOn(Schedulers.boundedElastic())
+                .flatMap(Mono::justOrEmpty)
+                .map(this::toEntity);
     }
 
     public Mono<E> findById(I id) {
-        return doQuery(fromSupplier(() -> repository.findById(id)).subscribeOn(Schedulers.boundedElastic()).flatMap(Mono::justOrEmpty));
+        return doQuery(() -> repository.findById(id));
     }
 
     public Flux<E> findByExample (E entity){

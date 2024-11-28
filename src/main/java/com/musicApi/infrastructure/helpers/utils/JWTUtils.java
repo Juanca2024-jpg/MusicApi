@@ -12,6 +12,7 @@ import java.util.Map;
 
 @Component
 public class JWTUtils {
+
     public String generateToken(String email, Map<String, Object> claims){
 
         Instant now = Instant.now();
@@ -21,20 +22,6 @@ public class JWTUtils {
                 .subject(email)
                 .issuedAt(Date.from(now))
                 .expiration(Date.from(now.plus(6L, ChronoUnit.HOURS)))
-                .signWith( getKey() )
-                .compact();
-
-    }
-
-    public String generatePasswordToken(String email, Map<String, Object> claims){
-
-        Instant now = Instant.now();
-
-        return Jwts.builder()
-                .claims(claims)
-                .subject(email)
-                .issuedAt(Date.from(now))
-                .expiration(Date.from(now.plus(1L, ChronoUnit.MINUTES)))
                 .signWith( getKey() )
                 .compact();
 
