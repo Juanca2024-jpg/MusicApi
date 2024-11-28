@@ -1,6 +1,7 @@
 package com.musicApi.infrastructure.driven_adapters.reactive_web.base;
 
 import io.netty.channel.ChannelOption;
+import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;

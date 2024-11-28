@@ -7,6 +7,7 @@ import reactor.core.publisher.Mono;
 public interface PlayListGateway {
 
     Flux<PlayListDTO> getPlayListAll();
-    Mono<PlayListDTO> getPlayListByNombre(String id);
+    Mono<PlayListDTO> getPlayListByNombre(String nombre);
     Mono<PlayListDTO> savePlayList(PlayListDTO playListDTO);
+
 }

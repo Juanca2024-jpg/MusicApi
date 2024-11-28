@@ -19,10 +19,19 @@ public class PlayListController {
         return ResponseEntity.ok().body(playListUseCase.getPlaylistAll());
     }
 
+    @GetMapping("/{nombre}")
+    public ResponseEntity<Object> getPlayListByNombre(@PathVariable("nombre") String nombre) {
+        return ResponseEntity.ok().body(playListUseCase.getPlayListByNombre(nombre));
+    }
+
     @PostMapping
     public ResponseEntity<Object> savePlaylist(@RequestBody PlayListParam playListParam) {
         return ResponseEntity.ok().body(playListUseCase
                 .savePlayList(playListParam));
     }
 
+    @DeleteMapping("/{nombre}")
+    public ResponseEntity<Object> deletePlayListByNombre(@PathVariable("nombre") String nombre) {
+        return ResponseEntity.ok().body(playListUseCase.deletePlayList(nombre));
+    }
 }

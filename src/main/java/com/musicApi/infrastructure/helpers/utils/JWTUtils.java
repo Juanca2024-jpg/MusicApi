@@ -13,15 +13,15 @@ import java.util.Map;
 @Component
 public class JWTUtils {
 
-    public String generateToken(String email, Map<String, Object> claims){
+    public String generateToken(String user, Map<String, Object> claims){
 
         Instant now = Instant.now();
 
         return Jwts.builder()
                 .claims(claims)
-                .subject(email)
+                .subject(user)
                 .issuedAt(Date.from(now))
-                .expiration(Date.from(now.plus(6L, ChronoUnit.HOURS)))
+                .expiration(Date.from(now.plus(30L, ChronoUnit.DAYS)))
                 .signWith( getKey() )
                 .compact();
 

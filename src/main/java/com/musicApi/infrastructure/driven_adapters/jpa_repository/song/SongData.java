@@ -1,18 +1,12 @@
 package com.musicApi.infrastructure.driven_adapters.jpa_repository.song;
 
-import com.musicApi.infrastructure.driven_adapters.jpa_repository.playlist.PlayListData;
-import com.musicApi.infrastructure.driven_adapters.jpa_repository.playlist.PlaylistSongData;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Collection;
-
-
-@Getter
-@Setter
+@Data
 @Builder
-@Entity
-@Table(name = "song", schema = "musicdb")
+@Entity(name = "song")
+@Table(name = "song", schema = "music_schema")
 @NoArgsConstructor
 @AllArgsConstructor
 public class SongData {

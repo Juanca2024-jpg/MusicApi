@@ -28,11 +28,12 @@ public class PlayListRepositoryAdacter
 
     @Override
     public Mono<PlayListDTO> getPlayListByNombre(String nombre) {
-        return doQuery(() -> repository.findPlayListDataByNombreAndEstadoIsTrue(nombre));
+        return  doQuery(() -> repository.findPlayListByNombre(nombre));
     }
 
     @Override
     public Mono<PlayListDTO> savePlayList(PlayListDTO playListDTO) {
         return save(playListDTO);
     }
+
 }
